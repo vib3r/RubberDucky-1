@@ -1,0 +1,41 @@
+#include "Keyboard.h"
+
+void typeKey(uint8_t key)
+{
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+}
+
+/* Init function */
+void setup()
+{
+  // Begining the Keyboard stream
+  Keyboard.begin();
+
+  // Wait 500ms
+  delay(500);
+
+  // coded By Vib3r
+  delay(1000);
+
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  Keyboard.releaseAll();
+
+  Keyboard.print(F("cmd"));
+
+  delay(1000);
+
+  typeKey(KEY_RETURN);
+
+  delay(1000);
+
+  Keyboard.print(F("Hacked By Vib3r (Just Fun)"));
+
+  // Ending stream
+  Keyboard.end();
+}
+
+/* Unused endless loop */
+void loop() {}
